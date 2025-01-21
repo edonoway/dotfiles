@@ -7,11 +7,11 @@ sudo apt-get install less nano htop ncdu vim tree
 # 2) Setup virtual environment
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
-uv python install 3.11
-uv venv
-source .venv/bin/activate
-uv pip install ipykernel simple-gpu-scheduler # very useful on runpod with multi-GPUs https://pypi.org/project/simple-gpu-scheduler/
-python -m ipykernel install --user --name=venv # so it shows up in jupyter notebooks within vscode
+# uv python install 3.11
+# uv venv
+# source .venv/bin/activate
+# uv pip install ipykernel simple-gpu-scheduler # very useful on runpod with multi-GPUs https://pypi.org/project/simple-gpu-scheduler/
+# python -m ipykernel install --user --name=venv # so it shows up in jupyter notebooks within vscode
 
 # 3) Setup dotfiles and ZSH
 mkdir git && cd git
@@ -23,4 +23,4 @@ chsh -s /usr/bin/zsh
 cd ..
 
 # 4) Setup github
-./scripts/setup_github.sh "elizabeth.donoway@gmail.com" "John Hughes"
+./scripts/setup_github.sh "elizabeth.donoway@gmail.com" "Elizabeth Donoway"
