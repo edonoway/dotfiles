@@ -3,8 +3,8 @@
 #!/bin/bash
 
 # Input arguments
-email=${1:-"jpl.hughes@btinternet.com"}
-name=${2:-"John Hughes"}
+email=${1:-"elizabeth.donoway@gmail.com"}
+name=${2:-"Elizabeth Donoway"}
 github_url=${3:-""}
 
 # 0) Setup git
