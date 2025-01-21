@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euo pipefail
+set -euxo pipefail
 USAGE=$(cat <<-END
     Usage: ./deploy.sh [OPTIONS], eg. ./deploy.sh --local --vim
     Creates ~/.zshrc and ~/.tmux.conf with location
@@ -45,7 +45,7 @@ fi
 # zshrc setup
 echo "source $DOT_DIR/config/zshrc.sh" > $HOME/.zshrc
 # conifg/aliases_speechmatics.sh adds remote specific aliases and cmds
-[ $LOC = 'remote' ] &&  echo \
+[ "$LOC" = 'remote' ] &&  echo \
     "source $DOT_DIR/config/aliases_speechmatics.sh" >> $HOME/.zshrc
 
 zsh
