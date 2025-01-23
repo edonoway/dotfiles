@@ -44,8 +44,5 @@ fi
 
 # zshrc setup
 echo "source $DOT_DIR/config/zshrc.sh" > $HOME/.zshrc
-# conifg/aliases_speechmatics.sh adds remote specific aliases and cmds
-[ "$LOC" = 'remote' ] &&  echo \
-    "source $DOT_DIR/config/aliases_speechmatics.sh" >> $HOME/.zshrc
 
 zsh
