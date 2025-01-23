@@ -7,6 +7,7 @@ sudo apt-get install less nano htop ncdu vim tree
 # 2) Setup virtual environment
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
+uv tool install "huggingface_hub[cli]"
 # uv python install 3.11
 # uv venv
 # source .venv/bin/activate
