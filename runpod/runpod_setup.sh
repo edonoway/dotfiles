@@ -24,4 +24,4 @@ chsh -s /usr/bin/zsh
 cd ..
 
 # 4) Setup github
-./scripts/setup_github.sh "elizabeth.donoway@gmail.com" "Elizabeth Donoway"
+./runpod/setup_github.sh "elizabeth.donoway@gmail.com" "Elizabeth Donoway"
