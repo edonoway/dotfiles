@@ -21,7 +21,6 @@ cd dotfiles
 ./install.sh --zsh --tmux
 chsh -s /usr/bin/zsh
 ./deploy.sh
-cd ..
 
 # 4) Setup github
 ./runpod/setup_github.sh "elizabeth.donoway@gmail.com" "Elizabeth Donoway"
