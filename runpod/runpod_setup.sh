@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euxo pipefail
 
 # 1) Setup linux dependencies
 su -c 'apt-get update && apt-get install sudo'
