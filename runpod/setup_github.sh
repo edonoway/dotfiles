@@ -1,6 +1,5 @@
 #!/bin/bash
-
-#!/bin/bash
+set -euxo pipefail
 
 # Input arguments
 email=${1:-"elizabeth.donoway@gmail.com"}
