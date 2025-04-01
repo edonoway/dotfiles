@@ -1,21 +1,25 @@
 #!/bin/bash
 set -euxo pipefail
 
-# 1) Setup linux dependencies
+# Setup linux dependencies
 su -c 'apt-get update && apt-get install sudo'
-sudo apt-get install less nano htop ncdu vim tree nvtop jq fzf ripgrep
+sudo apt-get install -y less nano vim htop btop nvtop ncdu lsof rsync tree jq fzf ripgrep npm
 
-# 2) Setup virtual environment
+# Setup uv for package/project management
 curl -LsSf https://astral.sh/uv/install.sh | sh
 source $HOME/.local/bin/env
 uv tool install "huggingface_hub[cli]"
-# uv python install 3.11
-# uv venv
-# source .venv/bin/activate
-# uv pip install ipykernel simple-gpu-scheduler # very useful on runpod with multi-GPUs https://pypi.org/project/simple-gpu-scheduler/
-# python -m ipykernel install --user --name=venv # so it shows up in jupyter notebooks within vscode
 
-# 3) Setup dotfiles and ZSH
+# Update Node.js to latest version (for Claude code)
+sudo apt-get remove -y nodejs
+sudo dpkg --remove --force-remove-reinstreq libnode-dev
+curl -fsSL https://deb.nodesource.com/setup_23.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+# Claude code
+npm install -g @anthropic-ai/claude-code
+
+# Setup dotfiles and ZSH
 mkdir git && cd git
 git clone https://github.com/edonoway/dotfiles.git
 cd dotfiles
@@ -23,5 +27,5 @@ cd dotfiles
 chsh -s /usr/bin/zsh
 ./deploy.sh
 
-# 4) Setup github
+# Setup github
 ./runpod/setup_github.sh "elizabeth.donoway@gmail.com" "Elizabeth Donoway"
