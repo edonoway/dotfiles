@@ -8,6 +8,10 @@ alias dot="cd $DOT_DIR"
 alias jp="jupyter lab"
 alias hn="hostname"
 alias nv='nvidia-smi'
+alias cdwg="cd /workspace/git"
+alias tsuv="ts -G 1 uv run"
+alias uvr="uv run"
+alias uvrp="uv run python"
 
 # -------------------------------------------------------------------
 # general
@@ -126,7 +130,7 @@ alias ta="tmux attach"
 alias taa="tmux attach -t"
 alias tad="tmux attach -d -t"
 alias td="tmux detach"
-alias ts="tmux new-session -s"
+alias tns="tmux new-session -s"
 alias tl="tmux list-sessions"
 alias tkill="tmux kill-server"
 alias tdel="tmux kill-session -t"
