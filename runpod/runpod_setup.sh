@@ -19,8 +19,29 @@ sudo apt-get install -y nodejs
 # Claude code
 npm install -g @anthropic-ai/claude-code
 
-# Setup dotfiles and ZSH
+# Detect and set CUDA_HOME environment variable for Task Spooler
+if command -v nvcc &>/dev/null; then
+  # resolve symlinks and strip off /bin/nvcc → /usr/local/cuda-XX.Y
+  CUDA_HOME=$(dirname "$(dirname "$(readlink -f "$(command -v nvcc)")")")
+elif compgen -G "/usr/local/cuda-*" > /dev/null; then
+  # pick the "max" cuda-XX.Y directory by version sort
+  CUDA_HOME=$(ls -d /usr/local/cuda-* | sort -V | tail -n1)
+else
+  echo "⚠️  Cannot find CUDA installation in /usr/local or on your PATH." >&2
+  return 1
+fi
+
+export CUDA_HOME
+echo "→ CUDA_HOME is set to $CUDA_HOME"
+
+# Setup Task Spooler for GPU scheduling
 mkdir git && cd git
+git clone https://github.com/justanhduc/task-spooler
+cd task-spooler
+./install_make
+cd ..
+
+# Setup dotfiles and ZSH
 git clone https://github.com/edonoway/dotfiles.git
 cd dotfiles
 ./install.sh --zsh --tmux
