@@ -10,6 +10,7 @@ alias hn="hostname"
 alias nv='nvidia-smi'
 alias cdwg="cd /workspace/git"
 alias tsuv="ts -G 1 uv run"
+alias tsc="ts -C && ts"
 alias uvr="uv run"
 alias uvrp="uv run python"
 
